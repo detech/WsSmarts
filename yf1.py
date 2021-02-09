@@ -14,8 +14,8 @@ today=date.today()
 files=[]
 
 #Specify historical price date range
-start_date="2017-01-01"
-end_date="2019-11-30"
+start_date="2020-12-01"
+end_date="2021-02-01"
 
 #Method to get the ticker data and save to a file
 def getData(ticker):
@@ -28,13 +28,14 @@ def getData(ticker):
 # Method to save the given pandas data to a csv file
 def SaveData(df, filename):
     print('saving to ' + './data/'+filename+'.csv')
-    # df.to_csv('./data/'+filename+'.csv')
+    df.to_csv('./data/'+filename+'.csv')
+    # print(df.head())
 
 def printDataSummary():
     for i in range(0,len(ticker_list)):
         print('reading from ' + './data/'+str(files[i])+'.csv')
-        # df1=pd.read_csv('./data/'+str(files[i])+'.csv')
-        # print(df1.head())
+        df1=pd.read_csv('./data/'+str(files[i])+'.csv')
+        print(df1.head())
 
 for tik in ticker_list:
     getData(tik)
